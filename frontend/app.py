@@ -2,7 +2,8 @@ import streamlit as st
 import requests
 
 # URL of your FastAPI backend (adjust if running on a different port/host)
-BACKEND_URL = "http://localhost:8000/generate"
+# BACKEND_URL = "http://localhost:8000/generate"
+BACKEND_URL = "https://shakespeare-muse.vercel.app/generate"  # Replace with your actual backend URL
 
 st.title("Simple GenAI Poetry Generator")
 st.write(

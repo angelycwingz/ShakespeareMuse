@@ -5,10 +5,14 @@ from schemas import PromptRequest, GeneratedText
 
 app = FastAPI()
 
+# Allow requests from your deployed Streamlit frontend
+origins = [
+    "https://shakespearemuse-v5z49agfgjgvj2l5pmyi3j.streamlit.app/"  # Replace with your frontend URL
+]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # For development: allows all. For production, specify your frontend origin(s)
+    allow_origins=origins,  # For development: allows all. For production, specify your frontend origin(s)
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
