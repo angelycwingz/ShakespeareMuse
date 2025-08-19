@@ -12,7 +12,7 @@ origins = [
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,  # For development: allows all. For production, specify your frontend origin(s)
+    allow_origins=["*"],  # For development: allows all. For production, specify your frontend origin(s)
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
