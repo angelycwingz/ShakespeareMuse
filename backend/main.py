@@ -7,7 +7,7 @@ app = FastAPI()
 
 # Allow requests from your deployed Streamlit frontend
 origins = [
-    "https://shakespearemuse-v5z49agfgjgvj2l5pmyi3j.streamlit.app/"  # Replace with your frontend URL
+    "https://shakespearemuse-v5z49agfgjgvj2l5pmyi3j.streamlit.app" # Replace with your frontend URL
 ]
 
 app.add_middleware(
