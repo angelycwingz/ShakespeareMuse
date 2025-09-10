@@ -5,11 +5,11 @@ class PromptRequest(BaseModel):
                         min_length=10,
                         max_length=500,
                         example="Write a romantic poem on eyes" , 
-                        description="The text prompt to generate a response for")
+                        description="The text prompt to generate a response for"
+                    )
 
     @field_validator('prompt')
-    @classmethod
-    def validate_prompt(cls, value):
+    def validate_prompt(value):
         if not value.strip():
             raise ValueError("Prompt cannot be empty")
         elif len(value) < 10:
@@ -22,8 +22,7 @@ class GeneratedText(BaseModel):
     generated_text: str = Field(..., example= "Your eyes are as beautiful as moon",description="The generated text response based on the prompt")
     
     @field_validator('generated_text')
-    @classmethod
-    def validate_text(cls, value):
+    def validate_text(value):
         if not value.strip():
             raise ValueError("Generated text cannot be empty")
         return value

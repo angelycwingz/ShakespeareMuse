@@ -7,7 +7,7 @@ app = FastAPI()
 
 # Allow requests from your deployed Streamlit frontend
 origins = [
-    "https://shakespearemuse-v5z49agfgjgvj2l5pmyi3j.streamlit.app" # Replace with your frontend URL
+    "https://shakespearemuse.streamlit.app","http://localhost:8501/" # Replace with your frontend URL
 ]
 
 app.add_middleware(
@@ -19,8 +19,8 @@ app.add_middleware(
 )
 
 @app.post("/generate", response_model=GeneratedText)
-async def generate_text(prompt: PromptRequest) -> GeneratedText:
-    # Here you would typically call your text generation model
-    # For demonstration, we will just return the prompt back
-    generated_response = gen_poem(prompt.prompt)
+async def generate_text(request: PromptRequest) -> GeneratedText:
+    generated_response = gen_poem(request.prompt)
+    print("Generated response:", generated_response)
+
     return GeneratedText(generated_text=generated_response)
